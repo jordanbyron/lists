@@ -1,0 +1,6 @@
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :developer unless Rails.env.production?
+  provider :twitter, "consumer_key", "consumer_secret"
+  provider :facebook, "consumer_key", "consumer_secret"
+  provider :identity, :fields => [:email]
+end

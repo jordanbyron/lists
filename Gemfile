@@ -4,6 +4,13 @@ gem 'rails', '~> 3.1.2'
 
 gem 'pg'
 
+# omniauth
+
+gem 'omniauth-twitter'
+#gem 'omniauth-identity'
+#gem 'omniauth-facebook'
+#gem 'omniauth', '~> 1.0.1'
+
 gem 'haml'
 gem 'sass'
 gem 'will_paginate', '~> 3.0'
@@ -21,10 +28,11 @@ end
 # gem 'capistrano'
 
 group 'test' do
-  gem 'capybara',  '~> 1.1.1'
+  gem 'minitest',           '~> 2.8.1'
+  gem 'capybara',           '~> 1.1.1'
   gem 'factory_girl_rails'
-  gem 'colorific', '~> 1.0.0'
-  gem 'test_notifier', '~> 1.0.0'
+  gem 'colorific',          '~> 1.0.0'
+  gem 'test_notifier'       , '~> 1.0.0'
 end
 
 group :production do
