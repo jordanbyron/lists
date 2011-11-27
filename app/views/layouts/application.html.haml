@@ -3,7 +3,8 @@
   %head
     %title
       = yield(:title).blank? ? controller_name.humanize : yield(:title)
-      \- Lists
+      = unless yield(:hide_name)
+        \- Lists
 
 
     = stylesheet_link_tag 'application'
@@ -12,4 +13,6 @@
 
     = yield(:header_bottom)
 
-  %body= yield
+  %body
+    = render :partial => "shared/current_user", :locals => {:current_user => current_user}
+    = yield

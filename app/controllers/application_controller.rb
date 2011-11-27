@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.try(:id)
   end
 
+  def user_required
+    unless signed_in?
+      flash[:error] = "Please sign in to continue!"
+      store_location
+      redirect_to root_path
+    end
+  end
+
   def store_location
     session[:return_to] = request.fullpath
   end
