@@ -5,11 +5,12 @@ Create and share lists with friends and family
 ## Features
 
 - Login with Facebook, Twitter, or Traditional Email / Password
-- Create a list and add items to it
+- Create a list and add gifts to it
 - Make a list public or private
-- Share the list with people
-- See other people's lists and be able to pick items off it
+- Share lists with people (through invite or share link)
+- See other people's lists and be able to pick gifts
 - Archive and delete past lists
+- Comments on lists / gifts
 
 ## Contributing
 
