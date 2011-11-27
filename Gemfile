@@ -17,6 +17,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'cocoon'
 gem 'jquery-rails'
 
+gem 'draper'
+
 group :assets do
   gem 'sass-rails',   '~> 3.1.5.rc.2'
   gem 'coffee-rails', '~> 3.1.1'
