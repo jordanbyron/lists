@@ -1,0 +1,15 @@
+!!! Strict
+%html
+  %head
+    %title
+      = yield(:title).blank? ? controller_name.humanize : yield(:title)
+      \- Lists
+
+
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+
+    = yield(:header_bottom)
+
+  %body= yield
