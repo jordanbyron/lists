@@ -1,0 +1,19 @@
+Hi there!
+
+Your friend <%= @list.user.name %> has invited you to view a gift list called:
+
+<%= @invite.list.name %>
+
+Gift List allows you and your friends to share and view gift lists with each other.
+
+To view this list just log into Gift List using this email address (<%= @invite.user.email %>) at:
+
+<%= list_url(@list) %>
+
+Happy Gifting!
+
+---
+
+If you no longer want to receive invites or emails from Gift List users you can unsubscribe yourself here:
+
+#TODO Create unsubscribe / blacklist email

@@ -1,5 +1,6 @@
 class Invite < ActiveRecord::Base
   before_create :find_or_create_user
+  after_create  :notify_user
   
   belongs_to :user
   belongs_to :list
@@ -25,5 +26,9 @@ class Invite < ActiveRecord::Base
   
   def find_or_create_user
     self.user = User.find_or_create_by_email(:email => email, :name => name)
+  end
+  
+  def notify_user
+    InviteMailer.new_invite(self)
   end
 end
