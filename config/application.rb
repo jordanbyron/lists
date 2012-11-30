@@ -55,5 +55,8 @@ module Lists
     ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|
       "<span class=\"field_with_errors\">#{html_tag}</span>".html_safe
     }
+    
+    # Action Mailer Defaults
+    config.action_mailer.delivery_method = :mailhopper
   end
 end

@@ -15,8 +15,13 @@ gem 'sass'
 gem 'will_paginate', '~> 3.0'
 gem 'cocoon'
 gem 'jquery-rails'
-
 gem 'draper'
+
+gem 'mailhopper'
+gem 'delayed_mailhopper'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'daemons', :require => false
 
 group :development do
   gem 'rails_setup'
