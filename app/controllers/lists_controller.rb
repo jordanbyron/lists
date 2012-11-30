@@ -3,7 +3,8 @@ class ListsController < ApplicationController
   before_filter :find_list, :only => [:edit, :update, :show, :destroy]
 
   def index
-    @lists = ListDecorator.decorate(current_user.lists.active)
+    @personal = ListDecorator.decorate(current_user.lists.active)
+    @invited  = ListDecorator.decorate(current_user.invited_lists.active)
   end
   
   def new
@@ -34,6 +35,12 @@ class ListsController < ApplicationController
     end
   end
   
+  def destroy
+    @list.destroy
+    
+    flash[:notice] = "Your list was successfully deleted"
+    redirect_to lists_path
+  end
   private
   
   def find_list

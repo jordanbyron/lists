@@ -1,11 +1,15 @@
 class ListDecorator < ApplicationDecorator
   decorates :list
 
+  # Include the user's name in the list description when:
+  # - The name does not include an "'s" IE "Jordan's list"
+  # - The list isn't for the current user
+  #
   def name
-    if list.name[/'s/]
-      list.name
-    else
+    if h.current_user != list.user && !list.name[/'s/]
       user.name + "'s " + list.name
+    else
+      list.name
     end
   end
 

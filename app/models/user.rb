@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :authorizations, :dependent => :destroy
   has_many :lists,          :dependent => :destroy
+  has_many :invites,        :dependent => :destroy
 
   attr_protected :admin
 
@@ -15,5 +16,9 @@ class User < ActiveRecord::Base
     end
 
     create(attributes)
+  end
+  
+  def invited_lists
+    List.includes(:invites).where("invites.user_id = ?", id)
   end
 end

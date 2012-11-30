@@ -4,7 +4,7 @@ class Invite < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
 
-  validates_presence_of :email, :list_id
+  validates_presence_of :email
   
   attr_writer :name
   

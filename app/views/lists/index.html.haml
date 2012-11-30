@@ -1,1 +1,11 @@
-%h1 My Lists
+%h1 Personal
+
+%p= link_to "New list", new_list_path
+
+- @personal.each do |list|
+  .list= link_to list.name, edit_list_path(list)
+
+%h1 Friends & Family
+
+- @invited.each do |list|
+  .list= link_to list.name, list_path(list)
