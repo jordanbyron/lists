@@ -25,9 +25,9 @@
   %h2 Invites
   
   #invites
-    = f.fields_for :gifts do |gift|
-      = render 'gift_fields', :f => gift
-    = link_to_add_association 'add gift', f, :gifts
+    = f.fields_for :invites do |invite|
+      = render 'invite_fields', :f => invite
+    = link_to_add_association 'add invite', f, :invites
   
   = f.submit 
   

@@ -50,5 +50,10 @@ module Lists
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Default uses divs which rendering issues with inline labels
+    ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|
+      "<span class=\"field_with_errors\">#{html_tag}</span>".html_safe
+    }
   end
 end
