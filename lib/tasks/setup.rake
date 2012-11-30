@@ -1,46 +1,51 @@
-require 'fileutils'
-
 desc 'Setup Lists for development / deploy'
-task :setup do
+setup_task :setup do
 
-  # Setup config files
-  database     = File.join(Rails.root, 'config', 'database.yml')
-  secret_token = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
-  omniauth     = File.join(Rails.root, 'config', 'initializers', 'omniauth.rb')
+  section "Configuration Files" do
+    
+    database_file = File.join(Rails.root, 'config', 'database.yml')
+    secret_token  = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
+    omniauth      = File.join(Rails.root, 'config', 'initializers', 'omniauth.rb')
 
-  unless File.exists?(database)
-    FileUtils.cp(database + '.example', database)
-    puts "Database config file created"
-    `$EDITOR #{database}`
+    find_or_create_file database_file, "database.yml", true
+
+    done "database.yml"
+
+    unless File.exists?(secret_token)
+      secret   = SecureRandom.hex(64)
+      template = ERB.new(File.read(secret_token + '.example'))
+
+      File.open(secret_token, 'w') {|f| f.write(template.result(binding)) }
+    end
+
+    done "Secret Token"
+    
+    find_or_create_file omniauth, "Omniauth", true
+    
+    done "Omniauth"
   end
 
-  unless File.exists?(secret_token)
-    # TODO: Generate secret_token.rb.erb and copy into place
+  section "Database" do
+    begin
+      # Check if there are pending migrations
+      silence { Rake::Task["db:abort_if_pending_migrations"].invoke }
+      done "Skip: Database already setup"
+    rescue Exception
+      silence do
+        Rake::Task["db:create"].invoke
+        Rake::Task["db:schema:load"].invoke
+      end
+      done "Database setup"
+    end
   end
 
-  unless File.exists?(omniauth)
-    FileUtils.cp(omniauth + '.example', omniauth)
-    puts "Omniauth config file created"
-    `$EDITOR #{omniauth}`
+  puts # Empty Line
+  puts %{#{'===='.color(:green)} Setup Complete #{'===='.color(:green)}}
+  puts # Empty Line
+
+  if console.agree("Would you like to run the test suite? (y/n)")
+    silence { Rake::Task["db:test:prepare"].invoke }
+    Rake::Task["test"].invoke
   end
-
-  puts "Config files created"
-
-  # Setup the database
-  Rake::Task["db:create"].invoke
-  Rake::Task["db:migrate"].invoke
-  Rake::Task["db:test:prepare"].invoke
-
-  puts "Database prepared"
-
-  # Setup seed data
-  Rake::Task["db:seed"].invoke
-
-  puts "Seed data loaded"
-
-  # Run the tests
-  Rake::Task["test"].invoke
-
-  puts "--- Setup Complete ---"
 
 end
