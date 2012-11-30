@@ -1,0 +1,14 @@
+.nested-fields
+  = f.label :quantity
+  = f.select :quantity, 1..10 
+  %br
+  = f.label :name, "Gift Name"
+  = f.text_field :name
+  %br
+  = f.label :price
+  = f.text_field :price
+  %br
+  = f.label :link, "Web Link"
+  = f.text_field :link
+  %br
+  = link_to_remove_association "remove gift", f

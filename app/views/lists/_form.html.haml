@@ -1,0 +1,33 @@
+= form_for @list do |f|
+  = error_messages_for @list
+  
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :description
+    %br
+    = f.text_field :description 
+  
+  %p
+    = f.label :occurs_on
+    %br
+    = f.text_field :occurs_on
+  
+  %h2 Gifts
+  
+  #gifts
+    = f.fields_for :gifts do |gift|
+      = render 'gift_fields', :f => gift
+    = link_to_add_association 'add gift', f, :gifts
+  
+  %h2 Invites
+  
+  #invites
+    = f.fields_for :gifts do |gift|
+      = render 'gift_fields', :f => gift
+    = link_to_add_association 'add gift', f, :gifts
+  
+  = f.submit 
+  
