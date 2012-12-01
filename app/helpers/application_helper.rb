@@ -2,6 +2,7 @@ module ApplicationHelper
 
   def title(page_title, hide_name = false)
     content_for(:title) { page_title }
+    content_for(:hide_name) { "true" } if hide_name
   end
 
   def error_messages_for(object)

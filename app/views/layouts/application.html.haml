@@ -3,7 +3,7 @@
   %head
     %title
       = yield(:title).blank? ? controller_name.humanize : yield(:title)
-      = unless yield(:hide_name)
+      - if yield(:hide_name).blank?
         \- Lists
 
 
