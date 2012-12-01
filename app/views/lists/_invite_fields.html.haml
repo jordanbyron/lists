@@ -1,11 +1,8 @@
-.nested-fields
+%tr.nested-fields
   - if f.object.new_record?
-    = f.label :email
-    = f.text_field :email
-    %br
-    = f.label :name
-    = f.text_field :name
+    %td= f.text_field :name
+    %td= f.text_field :email
   - else
-    #{f.object.name} (#{f.object.email})
-    %br
-  = link_to_remove_association "remove invite", f
+    %td= f.object.name
+    %td= f.object.email
+  %td= link_to_remove_association "remove invite", f

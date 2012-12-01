@@ -17,17 +17,31 @@
   
   %h2 Gifts
   
-  #gifts
+  %table#gifts
+    %tr
+      %th Quantity
+      %th Name
+      %th Price
+      %th Weblink
+      %th
     = f.fields_for :gifts do |gift|
       = render 'gift_fields', :f => gift
-    = link_to_add_association 'add gift', f, :gifts
+  %p= link_to_add_association 'add gift', f, :gifts,
+    :data => {:'association-insertion-node'   => 'table#gifts',
+              :'association-insertion-method' => 'append' }
   
   %h2 Invites
   
-  #invites
+  %table#invites
+    %tr
+      %th Name (optional)
+      %th Email
+      %th
     = f.fields_for :invites do |invite|
       = render 'invite_fields', :f => invite
-    = link_to_add_association 'add invite', f, :invites
+  %p= link_to_add_association 'add invite', f, :invites,
+    :data => {:'association-insertion-node'   => 'table#invites',
+              :'association-insertion-method' => 'append' }
   
   = f.submit 
   

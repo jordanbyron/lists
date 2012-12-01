@@ -14,6 +14,7 @@
     = yield(:header_bottom)
 
   %body
-    = render "shared/current_user", :current_user => current_user
-    = render "shared/flash",        :flash        => flash
-    = yield
+    %header
+      = render "shared/nav", :current_user => current_user
+      = render "shared/flash",        :flash        => flash
+    #content= yield

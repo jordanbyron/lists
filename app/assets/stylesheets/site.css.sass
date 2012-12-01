@@ -1,0 +1,30 @@
+@import mixins
+@import compass/reset
+@import compass
+@import blueprint
+
++blueprint-typography
+
+html
+  overflow-y: scroll
+
+body
+  font-size: 100%
+  background: #fff asset-url('cream_dust.png', image) repeat
+  
+#content, header
+  width: 800px
+  margin: 1em auto
+
+#content
+  width: 760px
+  padding: 20px
+  background: #fff
+  +border-radius(4px)
+  +single-box-shadow(#888, 0, 0, 3px)
+  
+header
+  #user
+    float: right
+    a
+      margin-left: 0.5em
