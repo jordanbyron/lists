@@ -1,4 +1,5 @@
 - if current_user
+  = link_to "Lists", lists_path
   #user
-    = link_to current_user.name
+    = link_to current_user.name, account_path
     = link_to "Sign out", logout_path

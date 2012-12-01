@@ -8,16 +8,10 @@ class User < ActiveRecord::Base
   attr_protected :admin
 
   def self.create_from_hash!(hash)
-    attributes = {
+    create(
       name:  hash['info']['name'],
       email: hash['info']['email']
-    }
-
-    if hash['provider'] == 'twitter'
-      attributes[:twitter] = hash['info']['nickname']
-    end
-
-    create(attributes)
+    )
   end
   
   def invited_lists

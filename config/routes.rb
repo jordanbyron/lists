@@ -15,4 +15,6 @@ Lists::Application.routes.draw do
       post :return
     end
   end
+  
+  resource :account
 end
