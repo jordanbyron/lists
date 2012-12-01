@@ -2,13 +2,19 @@ Hi there!
 
 Your friend <%= @list.user.name %> has invited you to view a gift list called:
 
-<%= @invite.list.name %>
+<%= @list.name %>
 
-Gift List allows you and your friends to share and view gift lists with each other.
+<% if @invite.user.authorizations.empty? %>
+It looks like you've never used Gift List before, so let me give you a brief overview of how it works. Gift List allows you and your friends to share and view gift lists with each other.
 
-To view this list just log into Gift List using this email address (<%= @invite.user.email %>) at:
+To setup your account and start gifting is super easy. We just need to get your account setup and then you'll be good to go. To get setup, visit the link below:
+
+<%= setup_account_url(:email => @invite.user.email) %>
+<% else %>
+To view this list just log into Gift List and click "<%= @list.name %>", or  visit the link below:
 
 <%= list_url(@list) %>
+<% end %>
 
 Happy Gifting!
 

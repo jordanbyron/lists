@@ -16,5 +16,9 @@ Lists::Application.routes.draw do
     end
   end
   
-  resource :account
+  resource :account do
+    member do
+      get :setup
+    end
+  end
 end

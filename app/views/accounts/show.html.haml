@@ -1,18 +1,6 @@
 %h1 Account
 
-= form_for @user, :url => account_path do |f|
-  = error_messages_for @user
-  
-  %p
-    = f.label :name
-    %br
-    = f.text_field :name
-  %p
-    = f.label :email
-    %br
-    = f.text_field :email 
-  
-  = f.submit
+= render 'form'
   
 %h2 Active Logins
 
