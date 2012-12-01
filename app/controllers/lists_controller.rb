@@ -24,6 +24,14 @@ class ListsController < ApplicationController
   
   def show
     @list = ListDecorator.decorate(@list)
+    
+    @available            = @list.gifts.available
+    @current_user_claimed = @list.gifts.claimed_by(current_user)
+    @other_claimed        = @list.gifts.not_claimed_by(current_user)
+    
+    @available            = GiftDecorator.decorate(@available)
+    @current_user_claimed = GiftDecorator.decorate(@current_user_claimed)
+    @other_claimed        = GiftDecorator.decorate(@other_claimed)
   end
   
   def update

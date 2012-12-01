@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :authorizations, :dependent => :destroy
   has_many :lists,          :dependent => :destroy
   has_many :invites,        :dependent => :destroy
+  
+  has_many :claims,         :dependent => :destroy
 
   attr_protected :admin
 

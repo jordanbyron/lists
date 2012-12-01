@@ -1,0 +1,31 @@
+- title @list.name
+
+%h1= @list.name
+%h3= @list.description
+%strong= @list.occurs_on
+
+- if current_user.claims.empty?
+  #help-message
+    %strong Reserving your first gift:
+    %p
+      To reserve a gift you would like to get for #{@list.user.name}, just click the check box next to the gift's name.
+    %p
+      Once you've selected a gift it will be moved to your claimed gifts list at the bottom of the page. If you decide not to get that gift simply uncheck it and it will return to the available gifts list at the top of the page!
+  
+%h4 Available
+      
+%table.gifts
+  - @available.each do |gift|
+    = render 'gift', :gift => gift
+    
+%h4 Claimed by you
+
+%table.gifts
+  - @current_user_claimed.each do |gift|
+    = render 'gift', :gift => gift
+    
+%h4 Claimed by others
+
+%table.gifts.no-claim
+  - @other_claimed.each do |gift|
+    = render 'gift', :gift => gift

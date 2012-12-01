@@ -8,4 +8,11 @@ Lists::Application.routes.draw do
   match '/login'  => 'sessions#new',     as: 'login'
 
   resources :lists
+  
+  resources :gifts do
+    member do 
+      post :claim
+      post :return
+    end
+  end
 end
