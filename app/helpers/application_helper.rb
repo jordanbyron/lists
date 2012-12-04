@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def error_messages_for(object)
-    if object.errors.any?
+    if object && object.errors.any?
       content_tag(:div, :id => "errorExplanation") do
         content_tag(:h2) { "It looks like something is missing or incorrect" } +
         content_tag(:p) { "Review the form below and make the appropriate changes." } +

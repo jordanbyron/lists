@@ -7,6 +7,8 @@ Lists::Application.routes.draw do
   match '/logout' => 'sessions#destroy', as: 'logout'
   match '/login'  => 'sessions#new',     as: 'login'
 
+  resources :identities
+  
   resources :lists
   
   resources :gifts do

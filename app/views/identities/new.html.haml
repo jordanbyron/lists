@@ -1,0 +1,22 @@
+%h1 Join Gift List
+
+= form_tag "/auth/identity/register" do
+  = error_messages_for @identity
+  
+  %p
+    = label_tag :name
+    %br
+    = text_field_tag :name, @identity.try(:name)
+  %p
+    = label_tag :email
+    %br
+    = text_field_tag :email, @identity.try(:email) 
+  %p
+    = label_tag :password
+    %br
+    = password_field_tag :password 
+  %p
+    = label_tag :password_confirmation
+    %br
+    = password_field_tag :password_confirmation 
+  %p= submit_tag "Register"

@@ -25,7 +25,7 @@ class AccountsController < ApplicationController
   
   def find_user
     @user           = current_user
-    @authorizations = @user.authorizations
+    @authorizations = @user.authorizations.where("provider != 'identity'")
   end
   
 end

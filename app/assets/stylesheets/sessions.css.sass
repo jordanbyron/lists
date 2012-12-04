@@ -1,0 +1,16 @@
+@import sassy-buttons
+@import blueprint/form
+
+body.sessions-new
+  a.btn
+    +sassy-button("matte", 5px, 1em, #f9f9f9, #e9e9e9, #333, "inset")
+    text-decoration: none
+    padding: 5px 10px
+    margin-bottom: 1.5em
+    margin-right: 1em
+  form
+    +blueprint-form
+    input[type=submit]
+      +sassy-button("matte", 5px,0.75em, #f9f9f9, #e9e9e9, #333, "inset")
+      text-decoration: none
+      padding: 4px 7px
