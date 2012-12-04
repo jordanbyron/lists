@@ -1,0 +1,17 @@
+@import mixins
+@import sassy-buttons
+
+nav
+  a
+    margin-right: 0.75em
+    text-decoration: none
+  #user
+    float: right
+    a
+      font-size: 0.9em
+      margin-right: 0
+      margin-left: 0.75em
+  a.new-list
+    +sassy-button("matte", 5px, 0.75em, $gl-green, #3A692F, #fff, "inset")
+    text-decoration: none
+    padding: 2px 10px

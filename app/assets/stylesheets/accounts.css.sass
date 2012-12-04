@@ -1,0 +1,14 @@
+@import mixins
+@import compass
+@import sassy-buttons
+@import blueprint/form
+
+body.accounts-show
+  form
+    +blueprint-form
+    input[type=submit]
+      +sassy-button("matte", 5px, 1em, #73829E, #63728E, #fff, "inset")
+      font-family: inherit
+      margin: 1em 0
+  table td.controls
+    text-align: right

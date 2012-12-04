@@ -32,6 +32,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.x'
   gem 'uglifier',     '>= 1.0.3'
   gem 'compass-rails'
+  gem 'sassy-buttons'
 end
 
 # Deploy with Capistrano

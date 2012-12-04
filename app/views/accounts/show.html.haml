@@ -1,11 +1,23 @@
+- title "Account"
+- content_for :nav do
+  = link_to '&larr; back to lists'.html_safe, lists_path
+
 %h1 Account
 
 = render 'form'
   
 %h2 Active Logins
 
-- @authorizations.each do |auth|
-  %p #{auth.provider.humanize}: #{auth.nickname || auth.uid}
+%table
+  %tr
+    %th Provider
+    %th UID / Nickname
+    %th
+  - @authorizations.each do |auth|
+    %tr
+      %td= auth.provider.humanize
+      %td= auth.nickname || auth.uid
+      %td.controls= link_to "remove"
   
 Want to use another service to log into Gift List? No problem! You can add
 #{link_to "Twitter",  "/auth/twitter"} or 

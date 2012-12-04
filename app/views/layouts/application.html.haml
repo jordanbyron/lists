@@ -4,7 +4,7 @@
     %title
       = yield(:title).blank? ? controller_name.humanize : yield(:title)
       - if yield(:hide_name).blank?
-        \- Lists
+        \- Gift List
 
 
     = stylesheet_link_tag 'application'
@@ -13,8 +13,8 @@
 
     = yield(:header_bottom)
 
-  %body
+  %body{:class => "#{controller.controller_name}-#{controller.action_name}"}
     %header
-      = render "shared/nav", :current_user => current_user
-      = render "shared/flash",        :flash        => flash
+      = render "shared/nav",    :current_user => current_user
+      = render "shared/flash",  :flash        => flash
     #content= yield

@@ -1,3 +1,6 @@
+- content_for :nav do
+  = link_to '&larr; back to lists'.html_safe, lists_path
+
 = form_for @list do |f|
   = error_messages_for @list
   
@@ -26,7 +29,7 @@
       %th
     = f.fields_for :gifts do |gift|
       = render 'gift_fields', :f => gift
-  %p= link_to_add_association 'add gift', f, :gifts,
+  %p= link_to_add_association 'Add a gift', f, :gifts,
     :data => {:'association-insertion-node'   => 'table#gifts',
               :'association-insertion-method' => 'append' }
   
@@ -39,9 +42,13 @@
       %th
     = f.fields_for :invites do |invite|
       = render 'invite_fields', :f => invite
-  %p= link_to_add_association 'add invite', f, :invites,
+  %p= link_to_add_association 'Invite a friend', f, :invites,
     :data => {:'association-insertion-node'   => 'table#invites',
               :'association-insertion-method' => 'append' }
   
-  = f.submit 
+  #controls
+    = f.submit
+    - if @list.persisted?
+      = link_to "Delete this list", @list, 
+        :method => 'delete', data: {confirm: 'Are you sure?'}
   

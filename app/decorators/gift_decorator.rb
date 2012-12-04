@@ -16,17 +16,23 @@ class GiftDecorator < ApplicationDecorator
     # If a user has claimed this gift, let them return it
     #
     if gift.claimed_by? h.current_user
-      h.link_to "Return", h.return_gift_path(gift), :method => 'post'
+      h.link_to "Return", h.return_gift_path(gift), :method => 'post',
+        :class => "return"
     
     # Otherwise, if the gift is still available, let them claim it
     #
     elsif gift.available?
-      h.link_to "Claim", h.claim_gift_path(gift), :method => 'post'
+      h.link_to "Claim", h.claim_gift_path(gift), :method => 'post', 
+        :class => "claim"
     end
   end
   
-  def link
-    h.link_to "LINK", gift.link unless gift.link.blank?
+  def name
+    if gift.link.blank?
+      gift.name
+    else
+      h.link_to gift.name, gift.link
+    end
   end
 end
 
