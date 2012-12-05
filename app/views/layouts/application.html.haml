@@ -17,4 +17,7 @@
     %header
       = render "shared/nav",    :current_user => current_user
       = render "shared/flash",  :flash        => flash
-    #content= yield
+    #content
+      = image_tag "bow.png", :class => "bow"
+      .banner
+      = yield
