@@ -45,9 +45,11 @@
         width: 70px
       td.claimed-by
         text-align: right
-    &.no-claim
-      a
-        display: none
+    &.no-claim  a.claim
+      display: none
+    &.no-claimed-by td.claimed-by
+      color: #fff
+      
   #help-message
     background-color: #FAFAE2
     border: 1px dashed #AE9331

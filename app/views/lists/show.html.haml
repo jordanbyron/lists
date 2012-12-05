@@ -25,14 +25,14 @@
   
   %h4 Available
       
-  %table.gifts
+  %table.gifts.no-claimed-by
     - @available.each do |gift|
       = render 'gift', :gift => gift
     
   - if @current_user_claimed.any?
     %h4 Claimed by you
 
-    %table.gifts
+    %table.gifts.no-claimed-by
       - @current_user_claimed.each do |gift|
         = render 'gift', :gift => gift
     
