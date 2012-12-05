@@ -1,6 +1,5 @@
 @import mixins
 @import compass
-@import sassy-buttons
 @import blueprint/form
       
 #lists
@@ -27,13 +26,9 @@
     margin: 0.5em 0
     color: #555 
   a.claim
-    +sassy-button("matte", 5px, 0.75em, $gl-green, #3A692F, #fff, "inset")
+    +green-button
   a.return
-    +sassy-button("matte", 5px, 0.75em, $gl-red, #A02C1E, #fff, "inset")
-  a.claim, a.return
-    padding: 2px 10px
-    font-family: inherit
-    text-decoration: none
+    +red-button
     
   table.gifts
     tr.gift
@@ -64,13 +59,9 @@
 form.edit_list, form.new_list
   +blueprint-form
   a.remove_fields
-    +sassy-button("matte", 5px, 0.75em, $gl-red, #A02C1E, #fff, "inset")
+    +red-button
   a.add_fields
-    +sassy-button("matte", 5px, 0.75em, $gl-green, #3A692F, #fff, "inset")
-  a.remove_fields, a.add_fields
-    padding: 2px 10px
-    font-family: inherit
-    text-decoration: none
+    +green-button 
   table
     width: 100%
     input, input[type=text]
@@ -84,6 +75,4 @@ form.edit_list, form.new_list
     margin-top: 1em 
     border-top: 1px solid #ccc
     input[type=submit]
-      +sassy-button("matte", 5px, 1em, #73829E, #63728E, #fff, "inset")
-      font-family: inherit
       margin-right: 2em
