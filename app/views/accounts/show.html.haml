@@ -12,12 +12,10 @@
   %tr
     %th Provider
     %th UID / Nickname
-    %th
   - @authorizations.each do |auth|
     %tr
       %td= auth.provider.humanize
       %td= auth.nickname || auth.uid
-      %td.controls= link_to "remove"
   
 Want to use another service to log into Gift List? No problem! You can add
 #{link_to "Twitter",  "/auth/twitter"} or 

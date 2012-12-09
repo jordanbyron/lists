@@ -39,6 +39,6 @@
   - if @other_claimed.any?
     %h4 Claimed by others
 
-    %table.gifts.no-claim
+    %table.gifts.no-claim.no-price
       - @other_claimed.each do |gift|
         = render 'gift', :gift => gift

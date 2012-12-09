@@ -38,15 +38,17 @@
         width: 400px
       td.price
         width: 70px
+        text-align: right
       td.claimed-by
         text-align: right
     &.no-claim  a.claim
       display: none
+    &.no-price
+      td.price
+        display: none
     &.no-claimed-by 
       td.claimed-by
         display: none
-      td.name
-        width: auto
       
   #help-message
     background-color: #FAFAE2

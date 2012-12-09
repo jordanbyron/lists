@@ -15,6 +15,6 @@ class List < ActiveRecord::Base
     :reject_if     => lambda { |invite| invite[:email].blank? }
 
   def self.active
-    where(:archived => false)
+    where("occurs_on >= ?", Date.today)
   end
 end
