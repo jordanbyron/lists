@@ -4,13 +4,13 @@ set :application, "simplegiftlist.com"
 set :repository,  "git://github.com/jordanbyron/lists.git"
 set :scm, :git
 set :user, "byron"
-set :deploy_to, "~/#{application}"
+set :deploy_to, "/home/byron/#{application}"
 set :branch, "master"
 set :use_sudo, false
 set :deploy_via, :remote_cache
 set :bundle_without, [:test]
 
-server "simplegiftlist.com", :app, :web, :db, :primary => true
+server "www.simplegiftlist.com", :app, :web, :db, :primary => true
 
 namespace :deploy do
   task :restart, :roles => :app do
