@@ -25,6 +25,7 @@ gem 'daemons', :require => false
 
 group :development do
   gem 'rails_setup'
+  gem 'capistrano'
 end
 
 group :assets do
