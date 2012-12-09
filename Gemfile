@@ -23,8 +23,9 @@ gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'daemons', :require => false
 
+gem 'rails_setup'
+
 group :development do
-  gem 'rails_setup'
   gem 'capistrano'
 end
 
@@ -36,10 +37,7 @@ group :assets do
   gem 'sassy-buttons'
 end
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-group 'test' do
+group :test do
   gem 'minitest'
   gem 'capybara'
   gem 'factory_girl_rails'
