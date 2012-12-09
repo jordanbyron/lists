@@ -1,7 +1,7 @@
 %nav
   = yield(:nav)
-  = current_user.shopping_list_link
   - if current_user
+    = current_user.shopping_list_link
     #user
       = link_to current_user.name, account_path
       = link_to "Sign out", logout_path
