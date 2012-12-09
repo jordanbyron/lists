@@ -149,6 +149,8 @@ GEM
       omniauth-oauth (~> 1.0)
     pg (0.14.1)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -207,6 +209,9 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    turbo-sprockets-rails3 (0.3.4)
+      railties (> 3.2.8, < 4.0.0)
+      sprockets (>= 2.0.0)
     turn (0.9.6)
       ansi
     tzinfo (0.3.35)
@@ -241,6 +246,7 @@ DEPENDENCIES
   omniauth-identity
   omniauth-twitter
   pg
+  quiet_assets
   rails (~> 3.2.x)
   rails_setup
   sass
@@ -248,6 +254,7 @@ DEPENDENCIES
   sassy-buttons
   test_notifier
   therubyracer
+  turbo-sprockets-rails3
   turn
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)

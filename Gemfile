@@ -27,6 +27,7 @@ gem 'rails_setup'
 
 group :development do
   gem 'capistrano'
+  gem 'quiet_assets'
 end
 
 group :assets do
@@ -35,6 +36,7 @@ group :assets do
   gem 'uglifier',     '>= 1.0.3'
   gem 'compass-rails'
   gem 'sassy-buttons'
+  gem 'turbo-sprockets-rails3'
 end
 
 group :test do
