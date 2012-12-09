@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(:version => 20121204222930) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "nickname"
   end
 
   create_table "claims", :force => true do |t|
     t.integer  "user_id"
     t.integer  "gift_id"
-    t.boolean  "purchased"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "purchased",  :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(:version => 20121204222930) do
     t.integer  "order"
     t.string   "link"
     t.integer  "quantity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "identities", :force => true do |t|
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20121204222930) do
     t.date     "occurs_on"
     t.boolean  "archived",    :default => false, :null => false
     t.boolean  "public",      :default => false, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(:version => 20121204222930) do
     t.string   "email"
     t.string   "twitter"
     t.boolean  "admin",      :default => false, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end

@@ -3,7 +3,7 @@ class CreateClaims < ActiveRecord::Migration
     create_table :claims do |t|
       t.belongs_to :user
       t.belongs_to :gift
-      t.boolean    :purchased
+      t.boolean    :purchased, :null => false, :default => false
       t.timestamps
     end
   end
