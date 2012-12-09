@@ -1,0 +1,17 @@
+@import mixins
+
+body.accounts-shopping_list
+  a.purchase
+    +green-button
+  a.purchased
+    +red-button
+    
+  table tr.purchased
+    color: #aaa
+    font-size: 0.9em
+    td.name a
+      color: #aaa
+    &:hover
+      color: #333
+      td.name a
+        color: #333

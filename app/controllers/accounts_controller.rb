@@ -21,6 +21,10 @@ class AccountsController < ApplicationController
     end
   end
   
+  def shopping_list
+    @gifts = GiftDecorator.decorate(@user.shopping_list)
+  end
+  
   private
   
   def find_user

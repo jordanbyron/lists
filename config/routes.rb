@@ -13,10 +13,13 @@ Lists::Application.routes.draw do
   
   resources :gifts do
     member do 
-      post :claim
-      post :return
+      post   :claim
+      post   :return
+      match  :purchase
     end
   end
+  
+  match '/shopping_list', to: 'accounts#shopping_list', as: 'shopping_list'
   
   resource :account do
     member do

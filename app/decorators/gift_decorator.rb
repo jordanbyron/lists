@@ -1,5 +1,6 @@
 class GiftDecorator < ApplicationDecorator
   decorates :gift
+  decorates_association :list
 
   def price
     h.number_to_currency gift.price
@@ -27,12 +28,45 @@ class GiftDecorator < ApplicationDecorator
     end
   end
   
+  def purchase_button(user)
+    claim = claim_for(user)
+    
+    if claim.purchased
+      h.link_to "Purchased", h.purchase_gift_path(gift), :method => 'delete', 
+        :class => "purchased"
+    else
+      h.link_to "Purchase", h.purchase_gift_path(gift), :method => 'post', 
+        :class => "purchase"
+    end
+  end
+  
   def name
     if gift.link.blank?
       gift.name
     else
       h.link_to gift.name, gift.link
     end
+  end
+  
+  def css_class(user)
+    css_classes = []
+    
+    # Check if the gift was claimed and purchased
+    #
+    claim = claim_for(user)
+    
+    if claim
+      css_classes << 'claimed'
+      css_classes << 'purchased' if claim.purchased
+    end
+    
+    css_classes.join(' ')
+  end
+  
+  private
+  
+  def claim_for(user)
+     Claim.where(:user_id => user, :gift_id => gift).first
   end
 end
 

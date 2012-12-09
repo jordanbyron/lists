@@ -9,6 +9,10 @@ class Gift < ActiveRecord::Base
       where("gifts.quantity > c.total_claims")
   end
   
+  def self.active
+    includes(:list).where('lists.archived = false')
+  end
+  
   def self.claimed_by(user)
     includes(:claims).where("claims.user_id = ?", user.id)
   end
@@ -17,11 +21,11 @@ class Gift < ActiveRecord::Base
     includes(:claims).where("claims.user_id != ?", user.id)
   end
   
-  def claim!(user)
+  def claim(user)
     Claim.create(:user => user, :gift => self)
   end
   
-  def return!(user)
+  def return_to_list(user)
     claims.find_by_user_id(user).destroy
   end
   

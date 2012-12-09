@@ -1,0 +1,12 @@
+- title "Account"
+- content_for :nav do
+  = link_to '&larr; back to lists'.html_safe, lists_path
+
+%h1 Shopping List
+
+%table.gifts
+  - @gifts.each do |gift|
+    %tr{class: gift.css_class(@user)}
+      %td= gift.purchase_button(@user)
+      %td.name= gift.name
+      %td= gift.list.name 

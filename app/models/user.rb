@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def invited_lists
     List.includes(:invites).where("invites.user_id = ?", id)
   end
+  
+  def shopping_list
+    Gift.claimed_by(self).active.order("claims.purchased, lists.name, gifts.name")
+  end
 end
