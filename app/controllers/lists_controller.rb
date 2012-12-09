@@ -25,8 +25,8 @@ class ListsController < ApplicationController
   def show
     @list = ListDecorator.decorate(@list)
     
-    @available            = @list.gifts.available
     @current_user_claimed = @list.gifts.claimed_by(current_user)
+    @available            = @list.gifts.available - @current_user_claimed
     @other_claimed        = @list.gifts.not_claimed_by(current_user)
     
     @available            = GiftDecorator.decorate(@available)
