@@ -1,6 +1,6 @@
 %tr.nested-fields
-  %td= f.select :quantity, 1..10 
+  %td.quantity= f.select :quantity, 1..10 
   %td= f.text_field :name
-  %td= f.text_field :price
+  %td.price= f.text_field :price
   %td= f.text_field :link
   %td.controls= link_to_remove_association "remove", f
