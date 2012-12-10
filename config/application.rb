@@ -58,6 +58,6 @@ module Lists
     
     # Action Mailer Defaults
     config.action_mailer.delivery_method     = :smtp #:mailhopper
-    config.action_mailer.default_url_options = {:host => "list.com"}
+    config.action_mailer.default_url_options = {:host => "simplegiftlist.com"}
   end
 end
