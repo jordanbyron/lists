@@ -3,15 +3,19 @@ class AccountsController < ApplicationController
   
   def update
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Your account was successfully updated"
-      redirect_to account_path
+      if @user.authorizations.empty?
+        redirect_to new_identity_path
+      else
+        flash[:notice] = "Your account was successfully updated"
+        redirect_to account_path
+      end
     else
       render :show
     end
   end
   
   def setup
-    @user = User.find_by_email(params[:key])
+    @user = User.find_by_perishable_token(params[:key])
     if @user.blank? || !@user.authorizations.empty?
       flash[:error] = %{Sorry, this key is no longer valid or your account is 
                         already setup}
