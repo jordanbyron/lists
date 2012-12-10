@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204222930) do
+ActiveRecord::Schema.define(:version => 20121210011419) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -103,9 +103,10 @@ ActiveRecord::Schema.define(:version => 20121204222930) do
     t.string   "name"
     t.string   "email"
     t.string   "twitter"
-    t.boolean  "admin",      :default => false, :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "admin",            :default => false, :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "perishable_token"
   end
 
 end

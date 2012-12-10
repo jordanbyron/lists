@@ -9,7 +9,7 @@ It looks like you've never used Gift List before, so let me give you a brief ove
 
 To setup your account and start gifting is super easy. We just need to get your account setup and then you'll be good to go. To get setup, visit the link below:
 
-<%= setup_account_url(:email => @invite.user.email) %>
+<%= setup_account_url(:key => @invite.user.perishable_token) %>
 <% else %>
 To view this list just log into Gift List and click "<%= @list.name %>", or  visit the link below:
 

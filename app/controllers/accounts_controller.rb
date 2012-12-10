@@ -11,13 +11,14 @@ class AccountsController < ApplicationController
   end
   
   def setup
-    @user = User.find_by_email(params[:email]) # TODO switch to key
+    @user = User.find_by_email(params[:key])
     if @user.blank? || !@user.authorizations.empty?
       flash[:error] = %{Sorry, this key is no longer valid or your account is 
                         already setup}
       redirect_to root_path
     else
       self.current_user = @user
+      @user.save
     end
   end
   

@@ -1,5 +1,4 @@
 class InviteMailer < ActionMailer::Base
-  
   def new_invite(invite)
     @invite = invite
     @list   = ListDecorator.decorate(invite.list)
