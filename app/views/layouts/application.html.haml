@@ -15,8 +15,8 @@
 
   %body{:class => "#{controller.controller_name}-#{controller.action_name}"}
     %header
-      = render "shared/nav",    :current_user => current_user
       = render "shared/flash",  :flash        => flash
+      = render "shared/nav",    :current_user => current_user
     #content
       = image_tag "bow.png", :class => "bow"
       .banner

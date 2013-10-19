@@ -3,7 +3,7 @@
 
 = form_for @list do |f|
   = error_messages_for @list
-  
+
   %p
     = f.label :name
     %br
@@ -11,15 +11,15 @@
   %p
     = f.label :description
     %br
-    = f.text_field :description 
-  
+    = f.text_field :description
+
   %p
     = f.label :occurs_on
     %br
-    = f.text_field :occurs_on
-  
+    = f.text_field :occurs_on, value: l(@list.occurs_on), class: 'date-picker'
+
   %h2 Gifts
-  
+
   %table#gifts
     %tr
       %th Quantity
@@ -32,9 +32,9 @@
   %p= link_to_add_association 'Add a gift', f, :gifts,
     :data => {:'association-insertion-node'   => 'table#gifts',
               :'association-insertion-method' => 'append' }
-  
+
   %h2 Invites
-  
+
   %table#invites
     %tr
       %th Name (optional)
@@ -45,10 +45,10 @@
   %p= link_to_add_association 'Invite a friend', f, :invites,
     :data => {:'association-insertion-node'   => 'table#invites',
               :'association-insertion-method' => 'append' }
-  
+
   #controls
     = f.submit
     - if @list.persisted?
-      = link_to "Delete this list", @list, 
+      = link_to "Delete this list", @list,
         :method => 'delete', data: {confirm: 'Are you sure?'}
-  
+

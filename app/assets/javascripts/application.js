@@ -7,5 +7,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require cocoon
+//= require twitter/bootstrap/alert
 //= require_tree '../../../vendor/assets/javascripts'
 //= require_tree .
+//= require_self
+
+$(function(){
+  $('input.date-picker').datepicker()
+});

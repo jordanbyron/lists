@@ -16,6 +16,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'cocoon'
 gem 'jquery-rails'
 gem 'draper'
+gem 'american_date'
 
 gem 'mailhopper'
 gem 'delayed_mailhopper'
@@ -37,6 +38,7 @@ group :assets do
   gem 'compass-rails'
   gem 'sassy-buttons'
   gem 'turbo-sprockets-rails3'
+  gem 'bootstrap-sass-rails'
 end
 
 group :test do

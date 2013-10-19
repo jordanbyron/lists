@@ -1,5 +1,8 @@
 #flash
   - flash.each do |flashtype, message|
-    %div{:class => "flash #{flashtype}", :id => "flash-#{flashtype}"}= message
-    :javascript
-      setTimeout("$('#flash').fadeOut()", 4000);
+    .alert{:class => "alert-#{flashtype} in fade"}
+      %a{href: "#", class:"close", data: {dismiss:"alert"}} &times;
+      = message
+
+    - #:javascript
+    - #  setTimeout("$('#flash').fadeOut()", 4000);

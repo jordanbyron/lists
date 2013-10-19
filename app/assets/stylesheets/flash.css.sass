@@ -1,2 +1,13 @@
+@import twitter/bootstrap/mixins
+@import twitter/bootstrap/variables
+@import twitter/bootstrap/alerts
+@import twitter/bootstrap/close
+@import twitter/bootstrap/component-animations
+
 #flash
-  padding-left: 60px
+  .alert-notice
+    @extend .alert-success
+  .alert
+    margin: 20px 0
+    a.close
+      text-decoration: none
