@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.15'
-
 gem 'pg'
 
 # omniauth
@@ -49,5 +49,5 @@ group :test do
 end
 
 group :production do
-  gem 'therubyracer'
+  gem 'rails_12factor'
 end
