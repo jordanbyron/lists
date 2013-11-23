@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.12'
+gem 'rails', '3.2.15'
 
 gem 'pg'
 
@@ -24,10 +24,9 @@ gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'daemons', :require => false
 
-gem 'rails_setup'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development do
-  gem 'capistrano'
   gem 'quiet_assets'
 end
 

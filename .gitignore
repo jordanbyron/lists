@@ -17,7 +17,5 @@
 # Ignore configuration files
 
 config/database.yml
-config/initializers/secret_token.rb
-config/initializers/omniauth.rb
-config/initializers/mail_settings.rb
 csv/
+.env
