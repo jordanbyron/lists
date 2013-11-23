@@ -50,12 +50,14 @@ module Lists
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
+
+    config.assets.initialize_on_precompile = false
+
     # Default uses divs which rendering issues with inline labels
     ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|
       "<span class=\"field_with_errors\">#{html_tag}</span>".html_safe
     }
-    
+
     # Action Mailer Defaults
     config.action_mailer.delivery_method     = :smtp #:mailhopper
     config.action_mailer.default_url_options = {:host => "simplegiftlist.com"}
