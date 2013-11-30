@@ -3,13 +3,24 @@
 
 #lists
   %h1 Gift Lists
-  %h2 
-    Personal
 
-  - @personal.each do |list|
-    = link_to list.name, edit_list_path(list)
+  - if @personal.empty?
+    %h4 Looks like you haven't created any lists yet!
 
-  %h2 Friends & Family
+    Let's
+    = link_to "create your first list", new_list_path,
+      style: 'display: inline;'
+    so you can invite your family and friends to check it out.
 
-  - @invited.each do |list|
-    = link_to list.name, list_path(list)
+  - else
+    %h2
+      Personal
+
+    - @personal.each do |list|
+      = link_to list.name, edit_list_path(list)
+
+  - if @invited.any?
+    %h2 Friends & Family
+
+    - @invited.each do |list|
+      = link_to list.name, list_path(list)
