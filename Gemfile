@@ -37,7 +37,7 @@ group :assets do
   gem 'compass-rails'
   gem 'sassy-buttons'
   gem 'turbo-sprockets-rails3'
-  gem 'bootstrap-sass-rails'
+  gem 'bootstrap-sass-rails', '2.3.2.1'
 end
 
 group :test do

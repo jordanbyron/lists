@@ -1,19 +1,20 @@
 %h1 Log in
 
-= link_to "Twitter", "/auth/twitter", :class => "btn"
-= link_to "Facebook", "/auth/facebook", :class => "btn"
+%p
+  = link_to "Twitter", "/auth/twitter", :class => "btn"
+  = link_to "Facebook", "/auth/facebook", :class => "btn"
 
 %p
   Don't use those services? #{link_to "create an account", new_identity_path}
   or log in below.
-  
+
 = form_tag "/auth/identity/callback" do
   %p
     = label_tag :auth_key, "Email"
     %br
-    = text_field_tag :auth_key 
+    = text_field_tag :auth_key
   %p
     = label_tag :password
     %br
-    = password_field_tag :password 
+    = password_field_tag :password
   %p= submit_tag "Login"
