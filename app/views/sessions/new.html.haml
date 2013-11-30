@@ -1,12 +1,12 @@
-%h1 Log in
+%h1 Sign into Gift List
 
 %p
-  = link_to "Twitter", "/auth/twitter", :class => "btn"
-  = link_to "Facebook", "/auth/facebook", :class => "btn"
+  = link_to "Sign in with Twitter", "/auth/twitter", :class => "zocial twitter"
+  = link_to "Sign in with Facebook", "/auth/facebook", :class => "zocial facebook"
 
 %p
-  Don't use those services? #{link_to "create an account", new_identity_path}
-  or log in below.
+  Don't use those services? #{link_to "Create an account", new_identity_path}
+  or sign in below.
 
 = form_tag "/auth/identity/callback" do
   %p
@@ -17,4 +17,5 @@
     = label_tag :password
     %br
     = password_field_tag :password
-  %p= submit_tag "Login"
+
+  %p= submit_tag "Sign in"
