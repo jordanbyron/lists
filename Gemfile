@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.15'
+gem 'rails', '3.2.16'
 gem 'pg'
 
 # omniauth
 
 gem 'omniauth-twitter'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '>= 1.5.1'
 gem 'omniauth-identity'
 
 gem 'haml'
@@ -18,12 +18,7 @@ gem 'jquery-rails'
 gem 'draper'
 gem 'american_date'
 
-gem 'mailhopper'
-gem 'delayed_mailhopper'
-gem 'delayed_job'
-gem 'delayed_job_active_record'
-gem 'daemons', :require => false
-
+gem 'redis'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development do
