@@ -14,7 +14,7 @@ class Gift < ActiveRecord::Base
   end
 
   def self.upcoming_and_recent
-    includes(:list).where("lists.occurs_on >= ?", Date.today + 1.week)
+    includes(:list).where("lists.occurs_on >= ?", Date.today - 1.week)
   end
 
   def self.claimed_by(user)
