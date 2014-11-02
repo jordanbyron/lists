@@ -9,8 +9,10 @@
 //= require cocoon
 //= require twitter/bootstrap/alert
 //= require_tree '../../../vendor/assets/javascripts'
-//= require_tree .
 //= require_self
+//= require_tree .
+
+window.lists = window.lists || {}
 
 $(function(){
   $('input.date-picker').datepicker()

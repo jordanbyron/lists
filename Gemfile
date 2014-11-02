@@ -17,12 +17,14 @@ gem 'cocoon'
 gem 'jquery-rails'
 gem 'draper'
 gem 'american_date'
+gem 'jbuilder'
 
 gem 'redis'
 gem 'dotenv-rails', :groups => [:development, :test]
 
-group :development do
+group :development, :test do
   gem 'quiet_assets'
+  gem 'pry-rails'
 end
 
 group :assets do
