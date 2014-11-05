@@ -1,0 +1,6 @@
+%h1 Reset your password
+
+= form_tag password_resets_path do
+  = label_tag :email
+  = text_field_tag :email
+  = submit_tag "Send Password Reset Instructions", class: 'btn'

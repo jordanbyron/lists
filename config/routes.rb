@@ -25,4 +25,6 @@ Lists::Application.routes.draw do
       get :setup
     end
   end
+
+  resources :password_resets
 end

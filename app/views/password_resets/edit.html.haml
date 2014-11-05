@@ -1,0 +1,14 @@
+%h1 Reset your password
+
+= form_for @identity, url: password_reset_path(@user.perishable_token) do |f|
+  = error_messages_for @identity
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
+  %p
+    = f.submit "Reset your password", class: 'btn'

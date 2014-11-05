@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  before_save :reset_perishable_token
-
   has_many :authorizations, :dependent => :destroy
   has_many :lists,          :dependent => :destroy
   has_many :invites,        :dependent => :destroy
