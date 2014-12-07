@@ -4,12 +4,12 @@ Your friend <%= @list.user.name %> has invited you to view a gift list called:
 
 <%= @list.name %>
 
-<% if @invite.user.authorizations.empty? %>
+<% if @user.authorizations.empty? %>
 It looks like you've never used Gift List before, so let me give you a brief overview of how it works. Gift List allows you and your friends to share and view gift lists with each other.
 
 To setup your account and start gifting is super easy. We just need to get your account setup and then you'll be good to go. To get setup, visit the link below:
 
-<%= setup_account_url(:key => @invite.user.perishable_token) %>
+<%= setup_account_url(:key => @user.perishable_token) %>
 <% else %>
 To view this list just log into Gift List and click "<%= @list.name %>", or  visit the link below:
 
@@ -20,7 +20,7 @@ Happy Gifting!
 
 <%
 # ---
-# 
+#
 # If you no longer want to receive invites or emails from Gift List users you can unsubscribe yourself here:
 #
 #TODO Create unsubscribe / blacklist email
