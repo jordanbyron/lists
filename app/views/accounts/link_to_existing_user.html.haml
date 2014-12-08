@@ -1,0 +1,9 @@
+%h1 Link new invites to an existing account.
+
+%p
+  To finish linking the lists
+  %strong
+    = @user.invites.map {|i| i.list.name }.join(', ')
+  to your existing account please sign in using one of the forms below:
+
+= render 'sessions/sign_in'

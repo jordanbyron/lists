@@ -22,8 +22,13 @@ class AccountsController < ApplicationController
                           already setup}
         redirect_to root_path
       else
-        self.current_user = @user
-        @user.save
+        if current_user.present? && current_user != @user
+          link_to_current_user
+          redirect_to root_path
+        else
+          self.current_user = @user
+          store_location
+        end
       end
     else
       flash[:error] = %{We're sorry, but it looks like the link you are using
@@ -37,10 +42,19 @@ class AccountsController < ApplicationController
     @gifts = GiftDecorator.decorate(@user.shopping_list)
   end
 
+  def link_to_existing_user
+    self.current_user = nil
+  end
+
   private
 
   def find_user
     @user           = current_user
     @authorizations = @user.authorizations.where("provider != 'identity'")
+  end
+
+  def link_to_current_user
+    @user.invites.update_all(user_id: current_user.id)
+    @user.destroy
   end
 end

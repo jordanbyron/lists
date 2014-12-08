@@ -23,6 +23,7 @@ Lists::Application.routes.draw do
   resource :account do
     member do
       get :setup
+      get :link_to_existing_user
     end
   end
 

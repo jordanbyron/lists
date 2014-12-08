@@ -1,9 +1,4 @@
 class SessionsController < ApplicationController
-
-  def new
-
-  end
-
   def create
     unless auth = Authorization.find_from_hash(auth_hash)
       auth = Authorization.create_from_hash(auth_hash, current_user)
@@ -33,5 +28,4 @@ class SessionsController < ApplicationController
   def auth_hash
     request.env['omniauth.auth']
   end
-
 end

@@ -1,5 +1,9 @@
 %h1 Welcome to Gift List!
 
-To get started please confirm or update the details below.
+%p
+  If you already have an existing account
+  please
+  = link_to "click here", link_to_existing_user_account_path
+  to add these new lists, otherwise just confirm the details below.
 
 = render 'form'
