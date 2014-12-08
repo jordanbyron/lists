@@ -5,4 +5,8 @@
   - else
     %td= f.object.name
     %td= f.object.email
-  %td.controls= link_to_remove_association "remove", f
+  %td.controls
+    - if f.object.persisted?
+      = link_to "Resend Invite", resend_invite_path(f.object),
+        class: 'btn resend-invite', data: { method: :post, remote: true }
+    = link_to_remove_association "remove", f

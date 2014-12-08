@@ -26,5 +26,7 @@ Lists::Application.routes.draw do
     end
   end
 
+  post '/invites/:id/resend' => 'invites#resend', as: 'resend_invite'
+
   resources :password_resets
 end

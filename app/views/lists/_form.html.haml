@@ -52,3 +52,7 @@
       = link_to "Delete this list", @list,
         :method => 'delete', data: {confirm: 'Are you sure?'}
 
+:javascript
+  $(document).on('click', 'a.resend-invite', function(e){
+    $(this).attr('disabled', 'disabled').text("Invite Sent!");
+  })
