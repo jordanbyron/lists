@@ -18,6 +18,7 @@ gem 'draper'
 gem 'american_date'
 gem 'jbuilder'
 gem 'sidekiq'
+gem 'autoscaler'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
