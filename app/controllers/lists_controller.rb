@@ -5,8 +5,8 @@ class ListsController < ApplicationController
   before_filter :list_creator_prevented, only: :show
 
   def index
-    @personal = ListDecorator.decorate(current_user.lists.active)
-    @invited  = ListDecorator.decorate(current_user.invited_lists.active)
+    @personal = current_user.lists.active.decorate
+    @invited  = current_user.invited_lists.active.decorate
   end
 
   def new

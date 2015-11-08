@@ -39,7 +39,7 @@ class AccountsController < ApplicationController
   end
 
   def shopping_list
-    @gifts = GiftDecorator.decorate(@user.shopping_list)
+    @gifts = GiftDecorator.decorate_collection(@user.shopping_list)
   end
 
   def link_to_existing_user
