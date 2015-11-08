@@ -9,7 +9,7 @@ class PasswordResetsController < ApplicationController
     if @user && @user.authorizations.where(provider: 'identity').any?
       @user.reset_perishable_token
       @user.save
-      AccountMailer.password_reset(@user).deliver
+      AccountMailer.password_reset(@user).deliver_now
       flash[:notice] = "An email with instructions have been sent to #{@user.email}"
       redirect_to root_path
     else
