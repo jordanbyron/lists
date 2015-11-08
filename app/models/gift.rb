@@ -10,19 +10,20 @@ class Gift < ActiveRecord::Base
   end
 
   def self.active
-    includes(:list).where('lists.archived = false')
+    joins(:list).where('lists.archived = false')
   end
 
   def self.upcoming_and_recent
-    includes(:list).where("lists.occurs_on >= ?", Date.today - 1.week)
+    joins(:list).where("lists.occurs_on >= ?", Date.today - 1.week)
   end
 
   def self.claimed_by(user)
-    includes(:claims).where("claims.user_id = ?", user.id)
+    joins(:claims).where("claims.user_id = ?", user.id)
   end
 
   def self.not_claimed_by(user)
-    includes(:claims).where("claims.user_id != ?", user.id)
+    joins('LEFT JOIN claims on claims.gift_id = gifts.id').
+      where("claims.user_id != ?", user.id)
   end
 
   def claim(user)

@@ -25,10 +25,10 @@ class Invite < ActiveRecord::Base
   private
 
   def find_or_create_user
-    self.user = User.find_or_create_by_email(:email => email, :name => name)
+    self.user = User.where(email: email).first_or_create(name: name)
   end
 
   def notify_user
-    InviteMailer.new_invite(self).deliver
+    InviteMailer.new_invite(self).deliver_later
   end
 end

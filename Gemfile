@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-ruby '2.0.0'
+ruby '2.2.3'
 
-gem 'rails', '3.2.20'
+gem 'rails', '4.2.4'
 gem 'pg'
 
 # omniauth
@@ -14,36 +14,26 @@ gem 'haml'
 gem 'sass'
 gem 'will_paginate', '~> 3.0'
 gem 'cocoon'
-gem 'jquery-rails'
 gem 'draper'
 gem 'american_date'
 gem 'jbuilder'
+gem 'sidekiq'
 
-gem 'redis'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development, :test do
-  gem 'quiet_assets'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.x'
-  gem 'coffee-rails', '~> 3.2.x'
-  gem 'uglifier',     '>= 1.0.3'
-  gem 'compass-rails'
-  gem 'sassy-buttons'
-  gem 'turbo-sprockets-rails3'
-  gem 'bootstrap-sass-rails', '2.3.2.1'
-end
-
-group :test do
-  gem 'minitest'
-  gem 'capybara'
-  gem 'factory_girl_rails'
-  gem 'turn'
-  gem 'test_notifier'
-end
+gem 'sass-rails',   '~> 5.0.x'
+gem 'coffee-rails', '~> 4.1.x'
+gem 'uglifier',     '~> 2.7.x'
+gem 'compass-rails'
+gem 'compass-blueprint'
+gem 'sassy-buttons'
+gem 'bootstrap-sass-rails', '2.3.2.1'
+gem 'jquery-rails'
 
 group :production do
   gem 'rails_12factor'

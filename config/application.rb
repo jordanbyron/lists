@@ -2,12 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
-end
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
 
 module Lists
   class Application < Rails::Application
@@ -39,29 +36,14 @@ module Lists
       g.test_framework  :minitest, :fixture => false
     end
 
-    # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
-
-    # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
-
-    # Enable the asset pipeline
-    config.assets.enabled = true
-
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
-
-    config.assets.initialize_on_precompile = false
-
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-
     # Default uses divs which rendering issues with inline labels
     ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|
       "<span class=\"field_with_errors\">#{html_tag}</span>".html_safe
     }
 
-    # Action Mailer Defaults
-    config.action_mailer.delivery_method     = :smtp #:mailhopper
-    config.action_mailer.default_url_options = {:host => "simplegiftlist.com"}
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

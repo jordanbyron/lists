@@ -6,7 +6,7 @@ class ListDecorator < ApplicationDecorator
   # - The list isn't for the current user
   #
   def name
-    if h.current_user != list.user && !list.name[/'s/]
+    if !list.name[/'s/] && !list.name[/#{Regexp.escape(user.name)}/i]
       user.name + "'s " + list.name
     else
       list.name

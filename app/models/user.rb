@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
 
   has_many :claims,         :dependent => :destroy
 
-  attr_protected :admin
-
   def self.create_from_hash!(hash)
     create(
       name:  hash['info']['name'],
@@ -15,7 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def invited_lists
-    List.includes(:invites).where("invites.user_id = ?", id)
+    List.joins(:invites).where("invites.user_id = ?", id)
   end
 
   def shopping_list

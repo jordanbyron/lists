@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  protect_from_forgery with: :exception
+
   helper_method :current_user, :signed_in?
 
-  private
+  protected
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -35,7 +36,7 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
-  
+
   def decorate_current_user
     @current_user = UserDecorator.decorate(@current_user) if @current_user
   end
