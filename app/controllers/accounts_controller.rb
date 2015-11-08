@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   before_filter :find_user, :except => [:setup]
 
   def update
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       if @user.authorizations.empty?
         redirect_to new_identity_path
       else
@@ -56,5 +56,9 @@ class AccountsController < ApplicationController
   def link_to_current_user
     @user.invites.update_all(user_id: current_user.id)
     @user.destroy
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email)
   end
 end
