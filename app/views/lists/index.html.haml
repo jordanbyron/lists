@@ -17,10 +17,10 @@
       Personal
 
     - @personal.each do |list|
-      = link_to list.name, edit_list_path(list)
+      = link_to list.name_without_user_name, edit_list_path(list)
 
   - if @invited.any?
-    %h2 Friends & Family
+    %h2 Friends &amp; Family
 
     - @invited.each do |list|
       = link_to list.name, list_path(list)

@@ -3,7 +3,6 @@ class ListDecorator < ApplicationDecorator
 
   # Include the user's name in the list description when:
   # - The name does not include an "'s" IE "Jordan's list"
-  # - The list isn't for the current user
   #
   def name
     if !list.name[/'s/] && !list.name[/#{Regexp.escape(user.name)}/i]
@@ -11,6 +10,10 @@ class ListDecorator < ApplicationDecorator
     else
       list.name
     end
+  end
+
+  def name_without_user_name
+    list.name
   end
 
   def occurs_on
